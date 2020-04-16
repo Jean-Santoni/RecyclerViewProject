@@ -18,14 +18,14 @@ import kotlinx.android.synthetic.main.enemple_test.view.*
 import kotlinx.android.synthetic.main.result.view.*
 import java.security.AccessController.getContext
 import kotlin.coroutines.coroutineContext
-class Adapter (private val exampleList: List<example>,val context: Context,val ClikListener : (example)-> Unit): RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter (private val exampleList: List<example>,val context: Context): RecyclerView.Adapter<Adapter.ViewHolder>() {
 
    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
             //val imageView : ImageView = itemView.image_view
             val textView1 : TextView = itemView.textbutton
             //  val textView2 : TextView = itemView.text2
-       
+
 
     }
 
@@ -44,13 +44,15 @@ class Adapter (private val exampleList: List<example>,val context: Context,val C
 
         //  holder.textView2.text = currentItem.text2
         holder.textView1.setOnClickListener{
-            Toast.makeText(context,"Click listener", Toast.LENGTH_SHORT).show()
-
+           // Toast.makeText(context,"Click listener "+currentItem.toString(), Toast.LENGTH_SHORT).show()
+            val intent = Intent(context, Main2Activity :: class.java)
+            context.startActivity(intent)
 
         }
     }
 
     override fun getItemCount() = exampleList.size
+
 
 
 }
