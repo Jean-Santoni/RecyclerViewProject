@@ -38,7 +38,7 @@ open  class MainActivity : AppCompatActivity() {
             //     1 -> R.drawable.ic_audiotrack_black
             //     else -> R.drawable.ic_brush_black
              //}
-             val item = example("Item $i")
+             val item = example("Item $i","Item $i")
              list += item
          }
          return list
