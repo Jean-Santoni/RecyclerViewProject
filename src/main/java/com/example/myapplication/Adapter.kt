@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.content.Intent
@@ -41,19 +42,22 @@ class Adapter (private val exampleList: List<example>,val context: Context): Rec
 
 
 
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = exampleList[position]
 
 
         //holder.imageView.setImageResource(currentItem.ImageRessource)
         holder.textView1.text = currentItem.text1
-        holder.textView2.text = holder.textView1.text
+        //holder.textView2.text = " valeur "+currentItem
         //  holder.textView2.text = currentItem.text2
         holder.textView1.setOnClickListener{
 
             //Toast.makeText(context,"Click listener "+currentItem.toString(), Toast.LENGTH_SHORT).show()
             val intent = Intent(context, Main2Activity :: class.java)
-            holder.textView2.text = currentItem.text1
+
+            intent.putExtra("valeur",currentItem.text1)
+
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             context.startActivity(intent)
 
