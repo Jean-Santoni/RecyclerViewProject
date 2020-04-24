@@ -10,6 +10,8 @@ import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.PopupWindow
+import android.widget.RemoteViews
 import android.widget.Toast
 import androidx.core.graphics.toColor
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,7 +28,26 @@ open  class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         super.getApplicationContext()
         setContentView(R.layout.complexe)
-        CustomLayout("ca marche ?",R.drawable.ic_brush_black,R.drawable.ic_audiotrack_black, Color.RED,Color.BLUE,Color.YELLOW,Color.BLACK)
+        CustomLayout("ca marche ?",R.drawable.ic_brush_black,R.drawable.ic_audiotrack_black, Color.RED,Color.BLUE,Color.YELLOW,Color.WHITE)
+        txtmain.setOnClickListener {
+            Toast.makeText(this,"Texte cliqué",Toast.LENGTH_SHORT).show()
+
+        }
+        imgleft.setOnClickListener {
+            Toast.makeText(this,"gauche cliqué",Toast.LENGTH_SHORT).show()
+            cplxall.removeView(imgleft)
+
+        }
+       imgright.setOnClickListener {
+           Toast.makeText(this,"droite cliqué",Toast.LENGTH_SHORT).show()
+
+       }
+        cardview.setOnClickListener {
+            Toast.makeText(this,"carte cliqué",Toast.LENGTH_SHORT).show()
+
+        }
+
+
 
 
         //val exampleList = generateDummyList(500)
@@ -37,9 +58,13 @@ open  class MainActivity : AppCompatActivity() {
 
       //  recycler_view.setHasFixedSize(true)
     }
+
+
+
     private fun CustomLayout(newText : String,newImage1 : Int,newImage2: Int,newTextColor : Int,newLeftColor : Int,newRightColor : Int, newBckColor : Int){
         txtmain.text=newText
-        cplxall.setBackgroundColor(newBckColor)
+
+
         txtmain.setTextColor(newTextColor)
         imgleft.setImageResource(newImage1)
         imgleft.setColorFilter(newRightColor)
