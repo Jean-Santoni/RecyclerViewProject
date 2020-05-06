@@ -9,43 +9,34 @@ import android.graphics.drawable.AnimatedImageDrawable
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
 import android.view.View
 import android.widget.PopupWindow
 import android.widget.RemoteViews
 import android.widget.Toast
 import androidx.core.graphics.toColor
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.ComplexeProject.ComplexeView
+import com.example.RecyclerView.Adapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.complexe.*
+import java.security.KeyStore
+import java.util.jar.Attributes
+
 
 open  class MainActivity : AppCompatActivity() {
 
-    override fun getApplicationContext(): Context {
-        return super.getApplicationContext()
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         super.getApplicationContext()
+
         setContentView(R.layout.complexe)
-        CustomLayout("ca marche ?",R.drawable.ic_brush_black,R.drawable.ic_audiotrack_black, Color.RED,Color.BLUE,Color.YELLOW,Color.WHITE)
-        txtmain.setOnClickListener {
-            Toast.makeText(this,"Texte cliqué",Toast.LENGTH_SHORT).show()
-
-        }
-        imgleft.setOnClickListener {
-            Toast.makeText(this,"gauche cliqué",Toast.LENGTH_SHORT).show()
-            cplxall.removeView(imgleft)
-
-        }
-       imgright.setOnClickListener {
-           Toast.makeText(this,"droite cliqué",Toast.LENGTH_SHORT).show()
-
-       }
-        cardview.setOnClickListener {
-            Toast.makeText(this,"carte cliqué",Toast.LENGTH_SHORT).show()
-
-        }
+        val test = ComplexeView(this)
+      // test.CustomLayout("ca marche ?",R.drawable.ic_brush_black,R.drawable.ic_audiotrack_black, Color.RED,Color.BLUE,Color.YELLOW,Color.WHITE)
+        test.toasttest()
+        test.ChangText("allllllez")
 
 
 
@@ -61,33 +52,8 @@ open  class MainActivity : AppCompatActivity() {
 
 
 
-    private fun CustomLayout(newText : String,newImage1 : Int,newImage2: Int,newTextColor : Int,newLeftColor : Int,newRightColor : Int, newBckColor : Int){
-        txtmain.text=newText
-
-
-        txtmain.setTextColor(newTextColor)
-        imgleft.setImageResource(newImage1)
-        imgleft.setColorFilter(newRightColor)
-        imgright.setColorFilter(newLeftColor)
-        imgright.setImageResource(newImage2)
 
 
 
-
-    }
-     //private fun generateDummyList(size: Int): List<example>{
-        // val list = ArrayList<example>()
-
-       //  for (i in 0 until size){
-            // val drawable = when (i % 3){
-             //    0 -> R.drawable.ic_android_black_
-            //     1 -> R.drawable.ic_audiotrack_black
-            //     else -> R.drawable.ic_brush_black
-             //}
-            // val item = example("Item $i","Item $i")
-           //  list += item
-       //  }
-        // return list
-     //}
 
 }
